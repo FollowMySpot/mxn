@@ -303,12 +303,14 @@ Mapstraction: {
 		var type = map.baseMapType;
 		
 		switch (type) {
-			case map.NORMAL:
+			case nokia.maps.map.Display.NORMAL:
 				return mxn.Mapstraction.ROAD;
-			case map.TERRAIN:
+			case nokia.maps.map.Display.TERRAIN:
 				return mxn.Mapstraction.PHYSICAL;
-			case map.SATELLITE:
+			case nokia.maps.map.Display.SATELLITE_PLAIN:
 				return mxn.Mapstraction.SATELLITE;
+			case nokia.maps.map.Display.SATELLITE:
+				return mxn.Mapstraction.HYBRID;
 			default:
 				return null;
 		}	// end-switch ()
