@@ -390,6 +390,7 @@ Mapstraction.prototype.swap = function(element, api) {
 
 	var center = this.getCenter();
 	var zoom = this.getZoom();
+	var mapType = this.getMapType();
 
 	this.currentElement.style.visibility = 'hidden';
 	this.currentElement.style.display = 'none';
@@ -424,7 +425,7 @@ Mapstraction.prototype.swap = function(element, api) {
 	}
 
 	this.addControls(this.addControlsArgs);
-
+	this.setMapType(mapType);
 };
 
 /**
