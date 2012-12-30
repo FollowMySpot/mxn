@@ -219,8 +219,8 @@ Mapstraction: {
 
 	getMapType: function() {
 		var map = this.maps[this.api];
-		var options = map.getOptions();
-		switch (options.mapTypeId) {
+		var mapTypeId = map.getMapTypeId();
+		switch (mapTypeId) {
 			case Microsoft.Maps.MapTypeId.road:
 				return mxn.Mapstraction.ROAD;
 			case Microsoft.Maps.MapTypeId.aerial:
