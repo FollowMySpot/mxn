@@ -201,6 +201,7 @@ Mapstraction: {
 				this.currentMapType = mxn.Mapstraction.ROAD;
 				break;
 			case mxn.Mapstraction.SATELLITE:
+			case mxn.Mapstraction.HYBRID:
 				this.addTileLayer('http://oatile{s}.mqcdn.com/naip/{z}/{x}/{y}.jpg', {
 					name: "Satellite",
 					attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
@@ -208,8 +209,6 @@ Mapstraction: {
 				});
 				this.currentMapType = mxn.Mapstraction.SATELLITE;
 				break;
-			case mxn.Mapstraction.HYBRID:
-				throw 'Not implemented';
 			default:
 				this.addTileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
 					name: "Roads",
