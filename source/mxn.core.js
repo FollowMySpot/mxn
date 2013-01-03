@@ -1502,7 +1502,7 @@ Marker.prototype.setLabel = function(labelText) {
 
 /**
  * addData conviniently set a hash of options on a marker
- * @param {Object} options An object literal hash of key value pairs. Keys are: label, infoBubble, icon, iconShadow, infoDiv, draggable, hover, hoverIcon, openBubble, groupName.
+ * @param {Object} options An object literal hash of key value pairs. Keys are: label, infoBubble, icon, iconShadow, infoDiv, draggable, hover, hoverIcon, openBubble, groupName, zIndex.
  */
 Marker.prototype.addData = function(options){
 	for(var sOptKey in options) {
@@ -1550,6 +1550,9 @@ Marker.prototype.addData = function(options){
 					break;
 				case 'closeBubble':
 					this.closeBubble();
+					break;
+				case 'zIndex':
+					this.setZIndex(options.zIndex);
 					break;
 				case 'groupName':
 					this.setGroupName(options.groupName);
@@ -1646,6 +1649,14 @@ Marker.prototype.setDraggable = function(draggable) {
  */
 Marker.prototype.setHover = function(hover) {
 	this.hover = hover;
+};
+
+/**
+ * Sets the marker zIndex
+ * @param {Integer} higher numbers display over the top of other markers
+ */
+Marker.prototype.setZIndex = function (zIndex) {
+	this.zIndex = zIndex;
 };
 
 /**

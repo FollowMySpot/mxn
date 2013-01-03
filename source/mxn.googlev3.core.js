@@ -496,7 +496,10 @@ Marker: {
 				type: 'poly'
 			};
 		}
-		
+		if (this.zIndex) {
+			options.zIndex = this.zIndex;
+		}
+
 		options.position = this.location.toProprietary(this.api);
 		options.map = this.map;
 

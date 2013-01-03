@@ -342,7 +342,11 @@ Marker: {
 		{
 			options.text = this.label;
 		}
-		var mmarker = new Microsoft.Maps.Pushpin(this.location.toProprietary('microsoft7'), options); 
+		if (this.zIndex) {
+			options.zIndex = this.zIndex;
+		}
+
+		var mmarker = new Microsoft.Maps.Pushpin(this.location.toProprietary('microsoft7'), options);
 
 		if (this.infoBubble){
 			var event_action = "click";

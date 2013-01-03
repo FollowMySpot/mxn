@@ -399,6 +399,10 @@ Marker: {
 			properties.icon = this.iconUrl;
 		}
 
+		if (this.zIndex) {
+			properties.zIndex = this.zIndex;
+		}
+
 		this.proprietary_infobubble = null;
 
 		var	prop_marker = new nokia.maps.map.Marker(

@@ -309,42 +309,30 @@ Marker: {
 	
 	toProprietary: function() {
 		var me = this;
-		var thisIcon = null;
-		if (L.Icon.hasOwnProperty("Default")) {
-			thisIcon = L.Icon.Default;
-		}
-		else {
-			thisIcon = L.Icon;
-		}
+		var iconOptions = {};
 		if (me.iconUrl) {
-			thisIcon = thisIcon.extend({
-				iconUrl: me.iconUrl
-			});
+			iconOptions.iconUrl = me.iconUrl;
 		}
 		if (me.iconSize) {
-			thisIcon = thisIcon.extend({
-				iconSize: new L.Point(me.iconSize[0], me.iconSize[1])
-			});
+			iconOptions.iconSize = new L.Point(me.iconSize[0], me.iconSize[1]);
 		}
 		if (me.iconAnchor) {
-			thisIcon = thisIcon.extend({
-				iconAnchor: new L.Point(me.iconAnchor[0], me.iconAnchor[1])
-			});
+			iconOptions.iconAnchor = new L.Point(me.iconAnchor[0], me.iconAnchor[1]);
 		}
 		if (me.iconShadowUrl) {
-			thisIcon = thisIcon.extend({
-				shadowUrl: me.iconShadowUrl
-			});
+			iconOptions.shadowUrl = me.iconShadowUrl;
 		}
 		if (me.iconShadowSize) {
-			thisIcon = thisIcon.extend({
-				shadowSize: new L.Point(me.iconShadowSize[0], me.iconShadowSize[1])
-			});
+			iconOptions.shadowSize = new L.Point(me.iconShadowSize[0], me.iconShadowSize[1]);
 		}
-		var iconObj = new thisIcon();
+		var iconObj = iconOptions.iconUrl != null ? new L.Icon(iconOptions) : new L.Icon.Default();
+		var options = { icon: iconObj };
+		if (me.zIndex) {
+			options.zIndexOffset = me.zIndex;
+		}
 		var marker = new L.Marker(
-			this.location.toProprietary('leaflet'),
-			{ icon: iconObj }
+			me.location.toProprietary('leaflet'),
+			options
 		);
 		(function(me, marker) {
 			marker.on("click", function (e) {
