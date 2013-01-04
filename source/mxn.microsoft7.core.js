@@ -298,6 +298,7 @@ Mapstraction: {
 	
 	mousePosition: function(element) {
 		var map = this.maps[this.api];
+		mxn.mousePositionElementId = element;
 
 		// TODO: Add provider code	
 	}

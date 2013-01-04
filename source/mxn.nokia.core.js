@@ -361,7 +361,8 @@ Mapstraction: {
 	
 	mousePosition: function(element) {
 		var map = this.maps[this.api];
-		var	locDisp = document.getElementById(element);
+		mxn.mousePositionElementId = element;
+		var locDisp = document.getElementById(element);
 		var	coords;
 		
 		if (locDisp !== null) {

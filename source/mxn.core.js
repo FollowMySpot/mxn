@@ -426,6 +426,9 @@ Mapstraction.prototype.swap = function(element, api) {
 
 	this.addControls(this.addControlsArgs);
 	this.setMapType(mapType);
+	if (mxn.mousePositionElementId) {
+		this.mousePosition(mxn.mousePositionElementId);
+	}
 };
 
 /**

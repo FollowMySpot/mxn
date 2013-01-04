@@ -384,6 +384,7 @@ mxn.register('openlayers', {
 
 		mousePosition: function(element) {
 			var map = this.maps[this.api];
+			mxn.mousePositionElementId = element;
 			var locDisp = document.getElementById(element);
 			if (locDisp !== null) {
 				map.events.register('mousemove', map, function (evt) {

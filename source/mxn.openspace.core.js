@@ -297,7 +297,7 @@ Mapstraction: {
 
 	mousePosition: function(element) {
 		var map = this.maps[this.api];
-
+		mxn.mousePositionElementId = element;
 		try {
 			map.events.register('mousemove', map, function (e) {
 				var lonLat = map.getLonLatFromViewPortPx(e.xy);

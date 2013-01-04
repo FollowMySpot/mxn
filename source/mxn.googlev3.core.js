@@ -420,6 +420,7 @@ Mapstraction: {
 	
 	mousePosition: function(element) {
 		var map = this.maps[this.api];
+		mxn.mousePositionElementId = element;
 		var locDisp = document.getElementById(element);
 		if (locDisp !== null) {
 			google.maps.event.addListener(map, 'mousemove', function (point) {
