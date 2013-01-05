@@ -273,7 +273,7 @@ Mapstraction: {
 	},
 	
 	mousePosition: function(element) {
-		throw 'Not implemented';
+		// TODO: Add provider code
 	},
 
 	openBubble: function(point, content) {
