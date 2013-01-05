@@ -404,6 +404,7 @@ Mapstraction.prototype.swap = function(element, api) {
 	
 	if (!this.maps.hasOwnProperty(this.api)) {
 		init.apply(this);
+		if (this.api == "googleearth") return; // Google Earth needs to wait for callback so use initMap function instead;
 
 		for (var i = 0; i < this.markers.length; i++) {
 			this.addMarker(this.markers[i], true);
@@ -1495,7 +1496,9 @@ mxn.addProxyMethods(Marker, [
 
 Marker.prototype.setChild = function(some_proprietary_marker) {
 	this.proprietary_marker = some_proprietary_marker;
-	some_proprietary_marker.mapstraction_marker = this;
+	if (this.api != 'googleearth') {
+		some_proprietary_marker.mapstraction_marker = this; // fails with Google Earth object
+	}
 	this.onmap = true;
 };
 
