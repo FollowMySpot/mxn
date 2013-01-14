@@ -296,11 +296,19 @@ Mapstraction: {
 		// TODO: Add provider code	
 	},
 	
-	mousePosition: function(element) {
-		var map = this.maps[this.api];
-		mxn.mousePositionElementId = element;
-
-		// TODO: Add provider code	
+	mousePosition: function (element) {
+	    var map = this.maps[this.api];
+	    mxn.mousePositionElementId = element;
+	    var locDisp = document.getElementById(element);
+	    if (locDisp !== null) {
+	        Microsoft.Maps.Events.addHandler(map, 'mousemove', function (e) {
+	            var point = new Microsoft.Maps.Point(e.getX(), e.getY());
+	            if (e.target.tryPixelToLocation) { // On map and not hovering over a marker
+	                var loc = e.target.tryPixelToLocation(point);
+	                locDisp.innerHTML = loc.latitude.toFixed(4) + ' / ' + loc.longitude.toFixed(4);
+	            }
+	        });
+	    }
 	}
 },
 
